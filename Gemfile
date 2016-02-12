@@ -29,3 +29,4 @@ gem 'rails', '4.2.5'
  end
 
  gem 'bootstrap-sass'
+ gem 'devise'
