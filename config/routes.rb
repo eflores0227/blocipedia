@@ -5,5 +5,6 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :users, only: [:new, :create, :show]
-  post "users/confirm" => "users#confirm"
+
+
 end
