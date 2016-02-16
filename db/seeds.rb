@@ -5,3 +5,14 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+require "faker"
+
+30.times do
+  Wiki.create!(
+    title: Faker::Hipster.sentence,
+    body: Faker::Hipster.paragraph
+  )
+end
+puts "Seed finished"
+puts "#{Wiki.count} wikis created"
