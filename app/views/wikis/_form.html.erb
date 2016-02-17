@@ -11,6 +11,14 @@
     </div>
   <% end %>
 
+  <% if current_user.admin? || current_user.premium? %>
+  <div class="form-group">
+    <%= f.label :private, class: 'checkbox' do %>
+      <%= f.check_box :private %> Private wiki
+    <% end %>
+  </div>
+<% end %>
+
   <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
