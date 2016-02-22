@@ -2,12 +2,12 @@
 
 <p>
   <strong>Title:</strong>
-  <%= @wiki.title %>
+  <%= @wiki.markdown_title %>
 </p>
 
 <p>
   <strong>Body:</strong>
-  <%= @wiki.body %>
+  <%= @wiki.markdown_body %>
 </p>
 
 <p>
@@ -17,10 +17,15 @@
 
 <p>
   <strong>User:</strong>
-  <%= @wiki.user %>
+  <%= @wiki.user_id %>
+</p>
+
+<p>
+  <strong>Collaborators:</strong>
+    <% @wiki.collaborators.each do |collaborator| %>
+      <%= collaborator.user_id %>
+    <% end %>
 </p>
 
 <%= link_to 'Edit', edit_wiki_path(@wiki) %> |
 <%= link_to 'Back', wikis_path %>
-
-<p> <%= @wiki.markdown_body %></p>

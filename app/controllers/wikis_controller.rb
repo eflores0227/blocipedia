@@ -3,7 +3,7 @@ class WikisController < ApplicationController
 
   # GET /wikis
   def index
-    @wikis = Wiki.visible_to(current_user)
+    @wikis = policy_scope(Wiki)
   end
 
   # GET /wikis/1
@@ -17,6 +17,7 @@ class WikisController < ApplicationController
 
   # GET /wikis/1/edit
   def edit
+
   end
 
   # POST /wikis
@@ -32,7 +33,7 @@ class WikisController < ApplicationController
 
   # PATCH/PUT /wikis/1
   def update
-    if @wiki.update(wiki_params)
+    if @wiki.update_attributes(wiki_params)
       redirect_to @wiki, notice: 'Wiki was successfully updated.'
     else
       render :edit
@@ -53,6 +54,6 @@ class WikisController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def wiki_params
-      params.require(:wiki).permit(:title, :body, :private, :user_id)
+      params.require(:wiki).permit(:title, :body, :private, :user_id, :collaborators)
     end
 end

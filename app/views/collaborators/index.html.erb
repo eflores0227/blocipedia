@@ -1,0 +1,16 @@
+
+<h1>Collaborators for Wiki #</h1>
+
+<ul>
+<% @collaborators.each do |c| %>
+  <li>User: <%= c.user.email if c.user %></li>
+<% end %>
+</ul>
+
+
+
+<%= form_for Collaborator.new do |f| %>
+  <%= f.hidden_field :wiki_id, value: params[:wiki_id] %>
+  <%= f.collection_select :user_id, User.all, :id, :email %>
+  <%= f.submit %>
+<% end %>

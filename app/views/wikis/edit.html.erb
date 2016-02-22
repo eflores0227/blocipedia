@@ -4,3 +4,4 @@
 
 <%= link_to 'Show', @wiki %> |
 <%= link_to 'Back', wikis_path %>
+<%= link_to 'Add Collaborator', collaborators_path(wiki_id: @wiki.id) %>
